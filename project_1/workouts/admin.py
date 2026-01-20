@@ -6,5 +6,8 @@ from .models import Workout
 @admin.register(Workout)
 class WorkoutAdmin(admin.ModelAdmin):
     list_display = ("exercise","sets","created_at",)
+    search_fields = ("exercise",)
+    list_filter = ("created_at",)
+    
 
 
