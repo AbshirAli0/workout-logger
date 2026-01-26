@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 
@@ -13,3 +14,7 @@ def signup(request):
         form = UserCreationForm()
 
     return render(request, "registration/signup.html", {"form":form})
+
+@login_required
+def home(request):
+    return render(request, "home.html")
