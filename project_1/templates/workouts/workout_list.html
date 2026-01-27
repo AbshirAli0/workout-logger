@@ -1,9 +1,14 @@
-<h1>Home</h1>
+<h1>Your Workouts</h1>
 
-<p>LOGIN SUCCESSFUL</p>
-<p> Welcome, {{user.username}} </p>
-
-<form method="post" action="{% url 'logout'  %} ">
-    {% csrf_token %}
-    <button type="submit">LOGOUT</button>
-</form>
+{%  if workouts  %}
+<ul>
+    {% for workout in workouts %}
+    <li>{{ workout.exercise }}</li>
+    <li>{{ workout.weight }}</li>
+    <li>{{ workout.sets }}</li>
+    <li>{{ workout.reps }}</li>
+    {% endfor %}
+</ul>
+{% else  %}
+    <p>No Workouts Yet.</p>
+{%  endif  %}

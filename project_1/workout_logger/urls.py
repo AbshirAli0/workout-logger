@@ -18,12 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from workouts import views
-from .views import WorkoutListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("login/", auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
     path("logout/",auth_views.LogoutView.as_view(), name="logout"),
     path("signup/", views.signup, name = "signup"),
-    path("workouts/",WorkoutListView.as_view(), name="workout-list")
+    path("workouts/", views.WorkoutListView.as_view(), name="workout-list")
 ]
