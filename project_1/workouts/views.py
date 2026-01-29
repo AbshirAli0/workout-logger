@@ -3,7 +3,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .models import Workout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 
@@ -24,8 +26,18 @@ def home(request):
 
 class WorkoutListView(LoginRequiredMixin, ListView):
     model = Workout
-    template_name = "workout/workout_list.html"
+    template_name = "workouts/workout_list.html"
     context_object_name = "workouts"
 
     def get_queryset(self):
         return Workout.objects.filter(user= self.request.user)
+
+class WorkoutCreateView(LoginRequiredMixin,CreateView):
+    model = Workout
+    fields = ["exercise", "weight", "sets", "reps"]
+    template_name = "workouts/workout_forms.html"
+    success_url = reverse_lazy('workout-list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
