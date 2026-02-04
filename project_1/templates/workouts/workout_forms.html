@@ -1,9 +1,27 @@
-<h1>Add Your Workout</h1>
+<h1>
+    
+{% if object %}
+ Edit Workout 
+
+ {% else %}
+
+Add workout
+{% endif %}
+</h1>
 
 <form method="POST">
     {% csrf_token  %}
     {{  form.as_p   }}
-    <button type="submi">Add Workout</button>
+
+    <button type="submi">
+        {% if object %}
+         Save changes
+       
+        {% else %}
+       
+         Add Workout
+        {% end if%}
+    </button>
 </form>
 
 <a href="{%  url 'workout-list'  %}">Back to Workouts</a>
