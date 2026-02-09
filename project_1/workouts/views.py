@@ -46,7 +46,7 @@ class WorkoutCreateView(LoginRequiredMixin,CreateView):
 class WorkoutUpdateView(LoginRequiredMixin,UpdateView):
     model = Workout
     fields = ["exercise","weight","sets","reps"]
-    template_name = "workouts/workout_form.html"
+    template_name = "workouts/workout_forms.html"
     success_url = reverse_lazy("workout-list")
 
     def get_queryset(self):
@@ -55,7 +55,7 @@ class WorkoutUpdateView(LoginRequiredMixin,UpdateView):
 
 class WorkoutDetailedView(LoginRequiredMixin,DetailView):
     model = Workout
-    template_name = "workouts/details.html"
+    template_name = "workouts/workout_detail.html"
     context_object_name = "workout"
 
     def get_queryset(self):

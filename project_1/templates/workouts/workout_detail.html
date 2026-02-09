@@ -1,0 +1,11 @@
+<h1>{{ workout.exercise }}</h1>
+
+<p>posted on {{workout.created_at | timesince }} ago</p>
+<ul>
+    <li>{{ workout.weight }} lbs</li>
+    <li>{{ workout.sets }}</li>
+    <li>{{ workout.reps }}</li>
+</ul>
+
+<a href ="{% url 'workout-update' workout.pk %}"> Edit</a>
+<a href ="{% url 'workout-list'%}"> Back to Workouts</a>
