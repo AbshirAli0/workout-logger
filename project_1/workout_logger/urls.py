@@ -25,6 +25,6 @@ urlpatterns = [
     path("logout/",auth_views.LogoutView.as_view(), name="logout"),
     path("signup/", views.signup, name = "signup"),
     path("workouts/", views.WorkoutListView.as_view(), name="workout-list"),
-    path("workouts/new/", views.WorkoutCreateView.as_view(), name="workout-create")
-
+    path("workouts/new/", views.WorkoutCreateView.as_view(), name="workout-create"),
+    path("workouts/<int:pk>", views.WorkoutDetailedView.as_view(), name="workout-detail")
 ]

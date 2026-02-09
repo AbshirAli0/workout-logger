@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .models import Workout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from django.urls import reverse_lazy
 
 
@@ -51,3 +51,13 @@ class WorkoutUpdateView(LoginRequiredMixin,UpdateView):
 
     def get_queryset(self):
         return Workout.objects.filter(user=self.request.user)
+
+
+class WorkoutDetailedView(LoginRequiredMixin,DetailView):
+    model = Workout
+    template_name = "workouts/details.html"
+    context_object_name = "workout"
+
+    def get_queryset(self):
+        return Workout.objects.filter(user= self.request.user)
+    
