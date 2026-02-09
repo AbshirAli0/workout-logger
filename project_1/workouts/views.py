@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .models import Workout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.urls import reverse_lazy
 
 
@@ -60,4 +60,8 @@ class WorkoutDetailedView(LoginRequiredMixin,DetailView):
 
     def get_queryset(self):
         return Workout.objects.filter(user= self.request.user)
-    
+
+class WorkoutDeleteView(LoginRequiredMixin, DeleteView):
+    model = Workout
+    template_name = "workouts/workout_delete.html"
+    success_url = reverse_lazy('workout-list')
