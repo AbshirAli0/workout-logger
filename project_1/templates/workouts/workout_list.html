@@ -1,3 +1,10 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
 <h1>Your Workouts</h1>
 
 {% if workouts %}
@@ -16,3 +23,5 @@
 {% endif %}
 
 <a href="{%  url 'workout-create'  %}">Add your workout</a>
+
+{% endblock %}

@@ -65,3 +65,6 @@ class WorkoutDeleteView(LoginRequiredMixin, DeleteView):
     model = Workout
     template_name = "workouts/workout_delete.html"
     success_url = reverse_lazy('workout-list')
+
+    def get_queryset(self):
+        return Workout.objects.filter(user= self.request.user)
