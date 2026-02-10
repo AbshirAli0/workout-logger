@@ -9,7 +9,11 @@
     <nav>
       <a href="{% url 'workout-list' %}">Home</a>
       <a href="{% url 'workout-create' %}">Create</a>
-      <a href="{% url 'logout' %}">Log out</a>
+      
+      <form action="{% url 'logout' %}" method="post" style="display: inline">
+        {% csrf_token %}
+        <button type="submit">LOG OUT</button>
+      </form>
     </nav>
 
     <hr />
