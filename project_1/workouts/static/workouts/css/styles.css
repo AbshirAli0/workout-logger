@@ -1,6 +1,6 @@
 body {
     font-family: Arial, san-serif;
-    background-color: #f4f6f8;
+    background-color: #3b84ce;
     margin: 0;
     padding: 0;
 }
@@ -9,4 +9,21 @@ body {
     width: 800px;
     margin: 40px auto;
 
+}
+
+.navbar {
+    background-color: rgb(206, 206, 212);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navbar a {
+    color: rgb(27, 25, 25);
+    margin-right: 20px;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
 }
