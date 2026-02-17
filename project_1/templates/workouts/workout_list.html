@@ -8,16 +8,22 @@ Home
 <h1>Your Workouts</h1>
 
 {% if workouts %}
+<div class="card">
+
 <ul>
   {% for workout in workouts %}
+
   <li>
-    <a href="{% url 'workout-detail' pk=workout.pk %}">
-      {{ workout.exercise }}
-    </a>
-    {{ workout.weight }} lbs, {{ workout.sets }} x {{ workout.reps }}
+      <a href="{% url 'workout-detail' pk=workout.pk %}">
+        {{ workout.exercise }}
+      </a>
+      {{ workout.weight }} lbs, {{ workout.sets }} x {{ workout.reps }}
   </li>
+
   {% endfor %}
 </ul>
+</div>
+
 {% else %}
 <p>No Workouts Yet.</p>
 {% endif %}
