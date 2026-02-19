@@ -3,6 +3,9 @@ body {
     background-color: #3b84ce;
     margin: 0;
     padding: 0;
+
+
+    
 }
 
 .container {
@@ -30,7 +33,34 @@ body {
 
 .card {
     background-color: white;
-    padding: 20px;
-    margin-bottom: 15px;
+    padding: 30px;
+    margin: 40px auto;
     border-radius: 8px;
+    max-width: 400px;
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+
+}
+
+.field-wrapper {
+    font-size: 22px;
+
+    display: flex;
+    flex-direction: column;   /* label above input */
+    align-items: center;      /* center label + input */
+    width: 100%;
+    border-radius: 12px;
+}
+  
+.card input,
+.card select,
+.card textarea {
+    font-size: 18px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
 }
