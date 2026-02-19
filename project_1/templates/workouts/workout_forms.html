@@ -1,3 +1,7 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
 <h1>
     
 {% if object %}
@@ -5,12 +9,13 @@
 
  {% else %}
 
-Add workout
 {% endif %}
 </h1>
 
-<form method="POST">
+<form method="POST" class="card">
+
     {% csrf_token  %}
+    <h1>ADD YOUR WORKOUT</h1>
     {{  form.as_p   }}
 
     <button type="submit">
@@ -25,3 +30,5 @@ Add workout
 </form>
 
 <a href="{%  url 'workout-list'  %}">Back to Workouts</a>
+
+{% endblock %}
