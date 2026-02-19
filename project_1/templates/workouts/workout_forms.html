@@ -22,20 +22,20 @@
         {{field}}
     </div>
     {% endfor %}
-
-
     
-    <button type="submit">
-        {% if object %}
-         Save changes
-       
-        {% else %}
-       
-         Add Workout
-        {% endif%}
-    </button>
+    <div class="button-wrapper">
+        <button type="submit" class="btn">
+            {% if object %}
+             Save changes
+           
+            {% else %}
+           
+             Add Workout
+            {% endif%}
+        </button>
+        <a href="{%  url 'workout-list'  %}" class="btn">Back to Workouts</a>
+    </div>
 </form>
 
-<a href="{%  url 'workout-list'  %}">Back to Workouts</a>
 
 {% endblock %}
